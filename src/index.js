@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import JobListing from './JobListing/JobListing';
 import './index.css';
 
-ReactDOM.render(
-  <JobListing appProp = "Eapps"/>,
-  document.getElementById('JobListing')  
+ReactDOM.render( <
+    JobListing appProp = "Eapps" / > ,
+    document.getElementById('JobListing')
 );
 
 //unmount the component after specified duration

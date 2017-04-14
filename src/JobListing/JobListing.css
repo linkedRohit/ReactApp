@@ -1,134 +1,150 @@
 .MJR {
-  text-align: center;
-  width: 75%;
+    text-align: center;
+    width: 75%;
 }
 
 .JobListing ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .listHeading {
-  background: #aaa;
-  color: white;
+    background: #aaa;
+    color: white;
 }
 
 .listHeading li {
-  width: 300px;
-  font-weight: bolder;
-  padding: 10px;
+    width: 300px;
+    font-weight: bolder;
+    padding: 10px;
 }
 
 .JobListing li {
-  float: left;
-  margin-left: 10px;
-  min-width: 275px;
+    float: left;
+    margin-left: 10px;
+    min-width: 275px;
 }
 
 .listingDetails li {
-  padding: 20px;
-  text-align: center;
+    padding: 20px;
+    text-align: center;
 }
 
 .notificationBar {
-  height: 25px;
-  background: #299829;
-  color: white;
-  width: 100%;
-  position: fixed;
-  padding: 14px;
-  bottom: 0px;
+    height: 25px;
+    background: #299829;
+    color: white;
+    width: 100%;
+    position: fixed;
+    padding: 14px;
+    bottom: 0px;
 }
 
 .hideMe10 {
-    -webkit-animation: cssAnimation 10s forwards; 
+    -webkit-animation: cssAnimation 10s forwards;
     animation: cssAnimation 10s forwards;
 }
 
 @keyframes cssAnimation {
-    0%   {opacity: 1;}
-    70%  {opacity: 1;}
-    100% {opacity: 0;}
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 @-webkit-keyframes cssAnimation {
-    0%   {opacity: 1;}
-    70%  {opacity: 1;}
-    100% {opacity: 0;}
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
-.icon{
-  height: 20px;
-  margin-left: 180px;
-  margin-right: 15px;
+.icon {
+    height: 20px;
+    margin-left: 180px;
+    margin-right: 15px;
 }
 
 .message {
-  color: white;
-  font-size: medium;
+    color: white;
+    font-size: medium;
 }
 
 .closeBtn {
-  /* right: 0px; */
-  float: right;
-  margin-top: -20px;
-  margin-right: 50px;
-  font-weight: bold;
+    /* right: 0px; */
+    float: right;
+    margin-top: -20px;
+    margin-right: 50px;
+    font-weight: bold;
 }
 
 .loader {
-  color: #ff8600;
-  font-weight: 600;
-  font-size: 19px;
-  padding: 15px;
-  left: 30%;
-  top: 50%;
-  font-family: ubuntu;
-  position: fixed;
+    color: #ff8600;
+    font-weight: 600;
+    font-size: 19px;
+    padding: 15px;
+    left: 30%;
+    top: 50%;
+    font-family: ubuntu;
+    position: fixed;
 }
 
 .loaderGIF {
-  left: 50%;
-  top: 45%;
-  position: fixed;
-  height: 50px;
-  width: 50px;
-  display: block;
-  background-image: url(/Images/hourglass.svg);
+    left: 50%;
+    top: 45%;
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    display: block;
+    background-image: url(/Images/hourglass.svg);
 }
 
 .layer {
-  width: 1351px;
-  height: 1482px;
-  z-index: 1000;
-  display: block;
-  position: fixed;
-  opacity: 0.3;
-  background: black;
-  left: 0;
-  top: 0;
-  color: red;
+    width: 1351px;
+    height: 1482px;
+    z-index: 1000;
+    display: block;
+    position: fixed;
+    opacity: 0.3;
+    background: black;
+    left: 0;
+    top: 0;
+    color: red;
 }
 
 .JobListing-logo {
-  animation: JobListing-logo-spin infinite 20s linear;
-  height: 80px;
+    animation: JobListing-logo-spin infinite 20s linear;
+    height: 80px;
 }
 
 .JobListing-header {
-  background-color: #222;
-  height: 50px;
-  padding: 20px;
-  color: white;
+    background-color: #222;
+    height: 50px;
+    padding: 20px;
+    color: white;
 }
 
 .JobListing-intro {
-  font-size: large;
+    font-size: large;
 }
 
 @keyframes JobListing-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(2deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(2deg);
+    }
 }
