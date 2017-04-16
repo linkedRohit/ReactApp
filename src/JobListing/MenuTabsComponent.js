@@ -4,8 +4,9 @@ import React, {
 import TabPanel, {
     TabBody,
     TabStrip
-} from 'react-tab-panel'
-import 'react-tab-panel/index.css'
+} from 'react-tab-panel';
+import 'react-tab-panel/index.css';
+import axios from 'axios';
 
 export default () => {
     return <TabPanel theme = "default"
@@ -38,19 +39,21 @@ export default () => {
 }
 
 class JobOperationsComponent extends Component {
-  getJobList() {
-      /*var newJobArray = {
-          "jobId": "2130417005901",
-          "title": "1React Js 1 Developer",
-          "numResponses": "231",
-          "refCode": "1Tech4412322"
+  constructor(props) {
+      super(props);
+
+      this.state = {
+          jobs: []
+        };
       }
-      var JobList =new Array();//this.state.data;
-      JobList.push(newJobArray);
-      this.setState({
-          data: JobList
-      })*/
-  };
+
+  getJobList (respType){
+      axios.get(`http://www.reddit.com/r/${respType}.json`)
+      .then(res => {
+        const jobs = res.data.data.children.map(obj => obj.data);
+        this.setState({ jobs });
+      });
+  }
 
     render() {
         return ( <
@@ -67,7 +70,7 @@ class JobOperationsComponent extends Component {
             } > Eapps < /a> < /li > <
             li > < a href = ""
             onClick = {
-                this.getJobList('CSM')
+                this.getJobList('Soccer')
             } > CSM < /a> < /li > <
             li > < a href = ""
             onClick = {
