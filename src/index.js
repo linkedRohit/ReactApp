@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 //import JobListing from './JobListing';
 import JobListing from './JobListing/JobListing';
 import './index.css';
+import FetchJobsComponent from './JobListing/FetchJobsComponent'
 
 ReactDOM.render( <
-    JobListing appProp = "Eapps" / > ,
+    JobListing defaultJobType = "All" / > ,
     document.getElementById('JobListing')
 );
 

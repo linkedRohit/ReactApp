@@ -7,6 +7,7 @@ import './JobListing.css';
 import '../Common/common.css';
 import SearchComponent from './SearchComponent';
 import MenuTabsComponent from './MenuTabsComponent';
+import axios from 'axios';
 
 //import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
@@ -31,11 +32,9 @@ class JobListing extends Component {
             // <
             // h3 > Is per page number valid: {
             //     this.props.perPageValid(this.props.numJobsPerPageProp)
-            // } < /h3> <
-            // 
+            // } < /h3>
+
             MenuTabsComponent / >
-            <
-            GlobalJobOperations / >
             <
             ListOfJobs / >
             <
@@ -64,8 +63,6 @@ JobListing.propTypes = {
     propArray: PropTypes.array.isRequired,
     perPageValid: PropTypes.func
 }
-
-
 
 class GlobalComponentLoader extends Component {
     render() {
@@ -104,33 +101,12 @@ class ErrorBroadCaster extends Component {
 
 }
 
-class GlobalJobOperations extends Component {
-    render() {
-        return ( <
-            div >
-            <
-            h1 > Global operations will be rendered here... < /h1> <
-            ul >
-            <
-            li > All < /li> <
-            li > Eapps < /li> <
-            li > CSM < /li> <
-            li > OMJ < /li> <
-            li > Email < /li> < /
-            ul > {
-                this.props.children
-            } <
-            /div>
-        );
-    }
-}
-
 class ListOfJobs extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            data: [{
+            jobs: [{
                     "jobId": "231216005901",
                     "title": "Software Engineer",
                     "numResponses": "23",
@@ -157,24 +133,19 @@ class ListOfJobs extends Component {
     };
 
     refreshJobs() {
+        this.state.listingType = 'All';
         this.state.isLoading = true;
-        var newJobArray = {
-            "jobId": "130417005901",
-            "title": "React Js Developer",
-            "numResponses": "231",
-            "refCode": "Tech4412322"
-        }
-        var JobList = this.state.data;
-        JobList.push(newJobArray);
-        this.setState({
-            data: JobList
-        })
+        axios.get(`http://www.reddit.com/r/${this.state.listingType}.json`)
+          .then(res => {
+            const jobs = res.data.data.children.map(obj => obj.data);
+            this.setState({ jobs });
+          });
     };
 
     render() {
             const {
                 isLoading,
-                data
+                jobs
             } = this.props; // Injected via connect
 
             if (isLoading) {
@@ -186,8 +157,6 @@ class ListOfJobs extends Component {
             return ( <
                 div className = "MJR fl" >
                 <
-                h2 > Job Listing < /h2> <
-                p > Jobs will be rendered here!!! < /p> <
                 div >
                 <
                 ul className = "listHeading" >
@@ -197,11 +166,11 @@ class ListOfJobs extends Component {
                 li > Number of Responses < /li> < /
                 ul > <
                 ul className = "listingDetails" > {
-                    this.state.data.map((person, i) => < TableRow key = {
+                    this.state.jobs.map((job, i) => < TableRow key = {
                             i
                         }
-                        data = {
-                            person
+                        job = {
+                            job
                         }
                         />)} < /
                         ul > <
@@ -213,12 +182,17 @@ class ListOfJobs extends Component {
                     );
                 }
 
-                componentWillMount() {
-                    console.log('Component WILL MOUNT!')
+                componentDidMount() {
+                  console.log('Component DID MOUNT, Loading all jobs by default!')
+                  axios.get(`http://www.reddit.com/r/${this.props.listingType}.json`)
+                    .then(res => {
+                      const jobs = res.data.data.children.map(obj => obj.data);
+                      this.setState({ jobs });
+                    });
                 }
 
-                componentDidMount() {
-                    console.log('Component DID MOUNT!')
+                componentWillMount() {
+                    console.log('Component WILL MOUNT!')
                 }
 
                 componentWillReceiveProps(newProps) {
@@ -244,21 +218,22 @@ class ListOfJobs extends Component {
 
             class TableRow extends Component {
                 render() {
+                    console.log(this.props);
                     return ( <
                         ul >
                         <
                         li > < a href = {
-                            'http://www.google.com/' + this.props.data.jobId
+                            'http://www.google.com/' + this.props.job.jobId
                         }
                         target = "blank" > {
-                            this.props.data.title
+                            this.props.job.title
                         } < /a><br/ > < /li> <
                         li > {
-                            this.props.data.refCode
+                            this.props.job.refCode
                         } < /li> <
                         li > {
-                            this.props.data.numResponses
-                        } < /li>          < /
+                            this.props.job.numResponses
+                        } < /li> < /
                         ul >
                     );
                 }

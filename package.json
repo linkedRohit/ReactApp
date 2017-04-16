@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axiom": "^0.1.6",
+    "axios": "^0.16.1",
     "muicss": "^0.9.15",
     "react": "^15.5.4",
     "react-checkbox-group": "^3.1.0",

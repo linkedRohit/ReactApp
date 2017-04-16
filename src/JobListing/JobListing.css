@@ -3,6 +3,10 @@
     width: 75%;
 }
 
+.JobListing {
+  margin-top: 20px;
+}
+
 .JobListing ul {
     list-style-type: none;
     margin: 0;
@@ -21,10 +25,29 @@
     padding: 10px;
 }
 
+.GlobalMJRMenu li a {
+  text-decoration: none;
+}
+
+.GlobalMJRMenu li a:hover {
+  color: #0045d0;
+  text-decoration: underline;
+}
+
+
+.GlobalMJRMenu li {
+  border-right: 2px solid #000;
+  padding: 1px;
+  padding-right: 10px;
+}
+
+.GlobalMJRMenu li:last-child {
+  border-right: 0px;
+}
+
 .JobListing li {
     float: left;
     margin-left: 10px;
-    min-width: 275px;
 }
 
 .listingDetails li {
