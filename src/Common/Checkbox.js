@@ -1,71 +1,46 @@
-import React, {
-    Component,
-    PropTypes
-} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 class Checkbox extends Component {
     state = {
-        isChecked: false,
+        isChecked: false
     }
 
     toggleCheckboxChange = () => {
-        const {
-            handleCheckboxChange,
-            label
-        } = this.props;
+        const {handleCheckboxChange, label} = this.props;
 
-        this.setState(({
-            isChecked
-        }) => ({
-            isChecked: !isChecked,
+        this.setState(({isChecked}) => ({
+            isChecked: !isChecked
         }));
 
         handleCheckboxChange(label);
     }
 
     render() {
-        const {
+        const {label} = this.props;
+        const {name} = this.props;
+        const {isChecked} = this.state;
+
+        return (< div className = "checkbox" > < label > < input type = "checkbox" value = {
             label
-        } = this.props;
-        const {
-            name
-        } = this.props;
-        const {
+        }
+        checked = {
             isChecked
-        } = this.state;
-
-        return ( <
-            div className = "checkbox" >
-            <
-            label >
-            <
-            input type = "checkbox"
-            value = {
-                label
-            }
-            checked = {
-                isChecked
-            }
-            name = {
-                name
-            }
-            onChange = {
-                this.toggleCheckboxChange
-            }
-            />
-
-            {
-                label
-            } <
-            /label> <
-            /div>
-        );
+        }
+        name = {
+            name
+        }
+        onChange = {
+            this.toggleCheckboxChange
+        } /> {
+            label
+        } < /label> <
+            /div >);
     }
 }
 
 Checkbox.propTypes = {
     label: PropTypes.string.isRequired,
-    handleCheckboxChange: PropTypes.func.isRequired,
+    handleCheckboxChange: PropTypes.func.isRequired
 };
 
 export default Checkbox;

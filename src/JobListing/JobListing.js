@@ -6,32 +6,34 @@ import logo from '../logo.svg';
 import './JobListing.css';
 import '../Common/common.css';
 import SearchComponent from './SearchComponent';
-//import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
+import MenuTabsComponent from './MenuTabsComponent';
 
+//import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
 class JobListing extends Component {
     render() {
         return ( <
             div className = "JobListing" >
-            <
-            h4 > Loading {
-                this.props.numJobsPerPageProp
-            } {
-                this.props.jobTypeFilter
-            } {
-                this.props.appProp
-            }
-            jobs Jobs per page
-            for {
-                this.props.userFilter
-            }
-            users < /h4>
-
-            <
-            h3 > Is per page number valid: {
-                this.props.perPageValid(this.props.numJobsPerPageProp)
-            } < /h3> <
-            Header / >
+            // <
+            // h4 > Loading {
+            //     this.props.numJobsPerPageProp
+            // } {
+            //     this.props.jobTypeFilter
+            // } {
+            //     this.props.appProp
+            // }
+            // jobs Jobs per page
+            // for {
+            //     this.props.userFilter
+            // }
+            // users < /h4>
+            //
+            // <
+            // h3 > Is per page number valid: {
+            //     this.props.perPageValid(this.props.numJobsPerPageProp)
+            // } < /h3> <
+            // 
+            MenuTabsComponent / >
             <
             GlobalJobOperations / >
             <
@@ -62,6 +64,8 @@ JobListing.propTypes = {
     propArray: PropTypes.array.isRequired,
     perPageValid: PropTypes.func
 }
+
+
 
 class GlobalComponentLoader extends Component {
     render() {
@@ -100,18 +104,6 @@ class ErrorBroadCaster extends Component {
 
 }
 
-class Header extends Component {
-    render() {
-        return ( <
-            div className = "header" >
-            <
-            div className = "JobListing-header" > { /*<img src={logo} className="JobListing-logo" alt="logo" />*/ } <
-            h2 > Global navigation bar of naukri < /h2> < /
-            div > <
-            /div>
-        );
-    }
-}
 class GlobalJobOperations extends Component {
     render() {
         return ( <
@@ -271,5 +263,6 @@ class ListOfJobs extends Component {
                     );
                 }
             }
+
 
             export default JobListing;

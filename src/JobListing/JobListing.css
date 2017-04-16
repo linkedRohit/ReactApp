@@ -40,6 +40,7 @@
     position: fixed;
     padding: 14px;
     bottom: 0px;
+    left: 0px;
 }
 
 .hideMe10 {
@@ -147,4 +148,9 @@
     to {
         transform: rotate(2deg);
     }
+}
+
+#mainTab {
+    border-bottom: 1px solid #b3b3b3;
+    height: 26px;
 }
